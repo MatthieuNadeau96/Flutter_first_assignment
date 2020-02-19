@@ -10,14 +10,7 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  var textIndex = 0;
-  void buttonPressed() {
-    setState(() {
-      textIndex = textIndex + 1;
-    });
-    print(textIndex);
-  }
-
+  String _mainText = 'This is my first assignment!';
   @override
   var textList = ['hello', 'hi', 'hey'];
   Widget build(BuildContext context) {
@@ -28,15 +21,15 @@ class MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Text(textList[textIndex]),
-            RaisedButton(
-              onPressed: buttonPressed,
-            ),
+            Text(_mainText),
+            RaisedButton(onPressed: () {
+              setState(() {
+                _mainText = 'This changed!';
+              });
+            }),
           ],
         ),
       ),
     );
   }
 }
-
-
